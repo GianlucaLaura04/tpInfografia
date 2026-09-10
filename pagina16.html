@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Más allá del script — Decisiones Autónomas</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <section class="escena16">
+
+    <!-- Fondo: la chica -->
+    <img src="images/fondo15.png" alt="" class="escena16__fondo" aria-hidden="true">
+
+    <h2 class="escena16__titulo">Decisiones Autónomas</h2>
+
+    <!-- Globo 2: instrucción -->
+    <div class="escena16__globo2">
+      <img src="images/globo2.png" alt="" class="escena16__globo2-imagen" aria-hidden="true">
+      <p class="escena16__globo2-texto">Selecciona un contexto para<br>ver cómo resuelve la misión</p>
+      <img src="images/personaje.png" alt="Personaje IA" class="escena16__globo2-personaje">
+    </div>
+
+    <!-- Globo 13: misión -->
+    <div class="escena16__globo13">
+      <img src="images/globo13.png" alt="" class="escena16__globo13-imagen" aria-hidden="true">
+      <p class="escena16__globo13-texto"><span class="acento">Misión:&nbsp</span> Entregarle suministros a la guardia</p>
+    </div>
+
+    <!-- Botones de contexto (interacción pendiente) -->
+    <div class="escena16__opciones">
+      <button class="escena16__opcion-boton" type="button" data-contexto="despejado">Camino despejado</button>
+      <button class="escena16__opcion-boton" type="button" data-contexto="vigilancia">Vigilancia</button>
+      <button class="escena16__opcion-boton" type="button" data-contexto="bloqueada">Puerta Bloqueada</button>
+    </div>
+<img src="images/seguro.png" alt="Resultado de la decisión" class="escena16__resultado" id="img-resultado" style="display: none;">
+  </section>
+
+</body>
+</html>

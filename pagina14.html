@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Más allá del script — Lógica Difusa (detalle)</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <section class="escena14b">
+
+    <!-- Fondo: ya incluye al personaje femenino -->
+    <img src="images/fondo13.png" alt="" class="escena14b__fondo" aria-hidden="true">
+
+    <h2 class="escena14b__titulo">Lógica Difusa</h2>
+
+    <p class="escena14b__bajada">
+      Los NPCs dejan de responder en 0 o 100% sino que ahora toman
+      <span class="acento">decisiones intermedias</span> evaluando el
+      <span class="acento">nivel de estrés</span> del entorno.
+    </p>
+<!-- Zona 1: pico alto de estrés -->
+<button class="escena14b__punto escena14b__punto--alto" type="button" aria-label="Estrés muy alto">
+  <div class="escena14b__extra">
+    <img src="images/globo11.png" alt="" class="escena14b__extra-imagen" aria-hidden="true">
+    <p class="escena14b__extra-texto">Si el estrés es "muy alto", la IA detiene la música de tensión, deja de generar infectados y genera botiquines para dar un respiro.</p>
+  </div>
+</button>
+
+<!-- Zona 2: valle bajo de estrés -->
+<button class="escena14b__punto escena14b__punto--bajo" type="button" aria-label="Estrés bajo">
+  <div class="escena14b__extra">
+    <img src="images/globo12.png" alt="" class="escena14b__extra-imagen" aria-hidden="true">
+    <p class="escena14b__extra-texto">Si el estrés es bajo, lanza hordas y enemigos especiales para aumentar la tensión.</p>
+  </div>
+</button>
+    <!-- Acá va la interacción pendiente (globo + elemento a confirmar) -->
+<a href="pagina15.html" class="escena14b__boton-volver">
+  <span class="portada__boton-icono" aria-hidden="true">↳</span>
+  <span>Volver</span>
+</a>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,2908 @@
+/* ==========================================================
+   FUENTES
+   Poné los archivos de las tipografías dentro de /fonts
+   y ajustá el nombre del archivo si no coincide.
+   ========================================================== */
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('fonts/Coolvetica\ Rg.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+@font-face {
+  font-family: 'Coolvetica Cram';
+  src: url('fonts/Coolvetica\ Rg\  Cram.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Coolvetica Heavy Compressed';
+  src: url('fonts/Coolvetica\ Hv\ Comp.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Bit';
+  src: url('fonts/ppneuebit-bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #050a08; /* respaldo mientras carga el fondo */
+  overflow-x: hidden;
+}
+
+/* ==========================================================
+   SECCIÓN PORTADA
+   ========================================================== */
+
+.portada {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  padding-left: 150px;
+}
+
+.portada__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ==========================================================
+   PERSONAJE
+   ========================================================== */
+
+.portada__personaje {
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(220px, 22vw, 420px);
+  height: auto;
+  filter: drop-shadow(0 0 60px rgba(255, 255, 255, 0.35));
+  animation: flotar 6s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: lighten;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(-50%) translateY(0); }
+  50%      { transform: translateY(-50%) translateY(-18px); }
+}
+
+/* ==========================================================
+   CONTENIDO
+   ========================================================== */
+
+.portada__contenido {
+  position: relative;
+  z-index: 1;
+  padding: 0 115px;
+  max-width: 1300px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* dejá esto igual, es para el título y subtítulo */
+}
+
+.portada__titulo {
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 128px;
+  padding-top: 50px;
+  line-height: 1.05;
+  letter-spacing: 0.07em;
+  background: linear-gradient(90deg, #7ee68a 0%, #4dd6c0 60%, #3fc7e0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+}
+
+.portada__subtitulo {
+  margin-top: 10px;
+  border-left: 5px solid #3fe08a;
+  background: linear-gradient(90deg, rgba(15, 60, 45, 0.55), rgba(15, 40, 35, 0.15));
+  padding: 20px 32px;
+}
+
+.portada__subtitulo p {
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 128px;
+  line-height: 0.80;
+  color: #f2f5f3;
+}
+
+/* ==========================================================
+   BOTÓN
+   ========================================================== */
+
+.portada__boton {
+  align-self: center;
+  margin-left: 470px;   /* <- esta es la única línea nueva */
+  margin-top: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 30px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+
+}
+.portada__boton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+
+.portada__boton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.portada__boton-icono {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .portada__personaje {
+    animation: none;
+  }
+}
+
+/* ==========================================================
+   PANTALLA 2 — ¿QUÉ ES UN NPC?
+   ========================================================== */
+
+.escena2 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+
+
+.escena2__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Personaje: mismo tratamiento que en la portada */
+.escena2__personaje {
+  position: absolute;
+  right: 15%;
+  top: 63%;
+  transform: translateY(-50%);
+  width: clamp(220px, 22vw, 420px);
+  height: auto;
+  filter: drop-shadow(0 0 60px rgba(255, 255, 255, 0.35));
+  pointer-events: none;
+}
+
+.escena2__exclamacion {
+  position: absolute;
+  right: 24%;
+  top: 48%;
+  width: 90px;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Globo de texto */
+.escena2__globo {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 800px;
+}
+
+.escena2__globo-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.escena2__triangulo {
+  position: absolute;
+  right: 90px;
+  top: 70%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: auto;
+  cursor: pointer;
+}
+
+
+.escena2__globo-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 34px 90px 34px 40px;
+  pointer-events: none;
+}
+
+.escena2__globo-texto p {
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 50px;
+  line-height: 0.7;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+.escena2__globo-texto .acento {
+  color: #3fe08a;
+  font-weight: bold;
+}
+.escena2__boton {
+  display: none; /* arranca oculto */
+  position: absolute;
+  right: 60px;
+  top: 70%;
+  transform: translateY(-50%);
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 30px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena2__boton:hover {
+  transform: translateY(-52%) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+
+.escena2__boton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ==========================================================
+   PANTALLA 3 — CONSTRUÍ TU NPC
+   ========================================================== */
+
+.escena3 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena3__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.escena3__personaje {
+  position: absolute;
+  left: 49%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  width: clamp(260px, 30vw, 480px);
+  height: auto;
+}
+
+.escena3__globo {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  width: 800px;
+}
+
+.escena3__globo-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.escena3__globo-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 30px 45px;
+  margin-bottom: 35px;
+  width: 90%;
+  pointer-events: none; /* que no tape clicks de los botones del fondo */
+}
+
+.escena3__globo-texto p {
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 50px;
+  line-height: 0.7;
+  color: #ffffff;
+}
+
+.acento {
+  color: #3fe08a;
+  font-weight: bold;
+}
+.escena3__boton-fondo {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena3__boton-fondo--sensorial {
+  left: 128px;
+  top: 262px;
+  width: 390px;
+  height: 65px;
+}
+
+.escena3__boton-fondo--sensorial:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(9, 255, 0, 0.76);
+}
+
+/* ==========================================================
+   PANTALLA 4 — SIMULACIÓN SENSORIAL
+   ========================================================== */
+
+.escena4 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena4__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena4__titulo {
+  position: absolute;
+  left: 18%;
+  top: 13%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.escena4__globo2 {
+  position: absolute;
+  left: 21%;
+  top: 30%;
+  width: 22%;
+}
+
+.escena4__globo2-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena4__globo2-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.escena4__globo2-texto p {
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+/* Interruptores */
+.escena4__interruptor {
+  position: absolute;
+  top: 52%;
+  width: 80px;
+  height: 160px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(180deg, #6e6e6e 0%, #3a3a3a 100%);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  padding: 0;
+}
+
+.escena4__interruptor--vista   { left: 20.5%; }
+.escena4__interruptor--oido    { left: 29.8%; }
+.escena4__interruptor--cerebro { left: 39.1%; }
+
+.escena4__interruptor-circulo {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #e9e9e9;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  transform: translate(-50%, 65px); /* arranca abajo */
+  transition: transform 0.3s ease;
+}
+
+.escena4__interruptor.is-active .escena4__interruptor-circulo {
+  transform: translate(-50%, 0); /* sube al activarse */
+}
+
+.escena4__interruptor.is-active {
+  background: linear-gradient(180deg, #3fe08a 0%, #7b3fe0 100%);
+}
+
+/* ==========================================================
+   PANTALLA 5 — SIMULACIÓN SENSORIAL (DETALLE)
+   ========================================================== */
+
+.escena5 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena5__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena5__boton-volver {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena5__boton-volver:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+
+.escena5__titulo {
+  position: absolute;
+  left: 18%;
+  top: 13%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* Etiquetas con globo3 */
+.escena5__etiqueta {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.escena5__etiqueta-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena5__etiqueta-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 24px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* Posición de cada etiqueta — AJUSTAR según tu fondo real */
+.escena5__etiqueta--raycasting {
+  left: 18.5%;
+  top: 28.8%;
+  width: 160px;
+}
+
+.escena5__etiqueta--percepcion {
+  left: 15%;
+  top: 74%;
+  width: 160px;
+}
+
+.escena5__etiqueta--auditivo {
+  left: 40%;
+  top: 74%;
+  width: 160px;
+}
+
+
+.escena5__extra {
+  position: absolute;
+  width: 280px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.escena5__etiqueta:hover .escena5__extra {
+  opacity: 1;
+  visibility: visible;
+}
+
+.escena5__extra-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena5__extra-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: left;
+}
+
+/* Posición de cada extra respecto a su etiqueta — AJUSTAR según tus imágenes reales */
+.escena5__extra--raycasting {
+  top: -80px;
+  left: 0;
+}
+
+.escena5__extra--percepcion {
+  top: 86%;
+  left: 0;
+  margin-top: 10px;
+}
+
+.escena5__extra--auditivo {
+  top: 86%;
+  left: 0;
+  margin-top: 10px;
+}
+/* ==========================================================
+   PANTALLA 6
+   ========================================================== */
+
+.escena6 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena6__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena6__boton-fondo {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  left: 130px;
+  top: 700px;
+  width: 404px;
+  height: 65px;
+}
+
+.escena6__boton-fondo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(9, 255, 0, 0.76);
+}
+
+/* ==========================================================
+   PANTALLA 7 — FICHA DE PERSONALIDAD
+   ========================================================== */
+
+.escena7 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena7__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena7__titulo {
+  position: absolute;
+  left: 55%;
+  top: 12%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.escena7__globo7 {
+  position: absolute;
+  left: 62.8%;
+  top: 24%;
+  width: 350px;
+}
+
+.escena7__globo7-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena7__globo7-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 0px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.escena7__filas {
+  position: absolute;
+  left: 48%;
+  top: 40%;
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.escena7__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.escena7__etiqueta {
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 30px;
+  color: #ffffff;
+  width: 350px;
+}
+
+.escena7__etiqueta--izq {
+  text-align: right;
+}
+
+.escena7__etiqueta--der {
+  text-align: left;
+}
+
+.escena7__opciones {
+  display: flex;
+  gap: 6px;
+}
+
+/* Inputs radio ocultos — solo se ve el label */
+.escena7__opcion {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.escena7__opcion-label {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Los 8 colores fijos: 4 violetas + 4 verdes */
+.escena7__opcion-label--1 { background: #3b1f5c; }
+.escena7__opcion-label--2 { background: #5a2f86; }
+.escena7__opcion-label--3 { background: #7a4fae; }
+.escena7__opcion-label--4 { background: #9b74c9; }
+.escena7__opcion-label--5 { background: #5fae94; }
+.escena7__opcion-label--6 { background: #3f8f72; }
+.escena7__opcion-label--7 { background: #2d735a; }
+.escena7__opcion-label--8 { background: #1d5642; }
+
+/* Palomita al seleccionar */
+.escena7__opcion:checked + .escena7__opcion-label::after {
+  content: '✓';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.escena7__globo7-personaje {
+  position: absolute;
+  right: -30px;
+  bottom: -15px;
+  width: 80px;
+  height: auto;
+  z-index: 1;
+}
+
+/* ==========================================================
+   PANTALLA 8 — FICHA DE PERSONALIDAD (NECESIDADES)
+   ========================================================== */
+
+.escena8 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena8__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena8__titulo {
+  position: absolute;
+  left: 53%;
+  top: 13%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.escena8__bajada {
+  position: absolute;
+  left: 48%;
+  top: 22%;
+  width: 44%;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+/* Etiqueta "Cálculo de Utilidad" — mismo patrón que la página 5 */
+.escena8__etiqueta {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  left: 70%;
+  top: 68%;
+  width: 150px;
+}
+
+.escena8__etiqueta-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena8__etiqueta-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 24px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.escena8__extra {
+  position: absolute;
+  width: 300px;
+  top: 65px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.escena8__etiqueta:hover .escena8__extra {
+  opacity: 1;
+  visibility: visible;
+}
+
+.escena8__extra-imagen {
+  display: block;
+  width: 150%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena8__extra-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: left;
+}
+.escena8__boton-volver {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena8__boton-volver:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+/* ==========================================================
+   PANTALLA 9
+   ========================================================== */
+
+.escena9 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena9__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena9__boton-fondo {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  left: 1364.5px;
+  top: 467.2px;
+  width: 388.2px;
+  height: 66px;
+}
+
+.escena9__boton-fondo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(9, 255, 0, 0.76);
+}
+
+/* ==========================================================
+   PANTALLA 10 — NAVEGACIÓN ORGÁNICA
+   ========================================================== */
+
+.escena10 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena10__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena10__titulo {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.escena10__globo2 {
+  position: absolute;
+  left: 20%;
+  top: 25%;
+  width: 350px;
+}
+
+.escena10__globo2-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena10__globo2-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 16px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.escena10__globo2-personaje {
+  position: absolute;
+  right: -50px;
+  bottom: -15px;
+  width: 80px;
+  height: auto;
+  z-index: 1;
+}
+
+/* Selector Lineal / Orgánica */
+.escena10__selector {
+  position: absolute;
+  left: 17.5%;
+  top: 55%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.escena10__opcion {
+  width: 180px;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena10__interruptor {
+  position: relative;
+  width: 80px;
+  height: 160px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(180deg, #6e6e6e 0%, #3a3a3a 100%);
+  cursor: pointer;
+  padding: 0;
+}
+
+.escena10__interruptor-circulo {
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #e9e9e9;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  transform: translate(-50%, 65px); /* arranca abajo (Lineal activo) */
+  transition: transform 0.3s ease;
+}
+
+.escena10__interruptor.is-active .escena10__interruptor-circulo {
+  transform: translate(-50%, 0); /* sube (Orgánica activo) */
+}
+
+.escena10__interruptor.is-active {
+  background: linear-gradient(180deg, #3fe08a 0%, #7b3fe0 100%);
+}
+
+/* ==========================================================
+   PANTALLA 11 — NAVEGACIÓN ORGÁNICA (DETALLE)
+   ========================================================== */
+
+.escena11 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena11__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena11__titulo {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.escena11__bajada {
+  position: absolute;
+  left: 11%;
+  top: 22%;
+  width: 40%;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+/* Etiquetas — mismo patrón que la página 5/8 */
+.escena11__etiqueta {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 150px;
+}
+
+.escena11__etiqueta-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena11__etiqueta-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 24px;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.escena11__extra {
+  position: absolute;
+  width: 280px;
+  top: 41.8px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.escena11__etiqueta:hover .escena11__extra {
+  opacity: 1;
+  visibility: visible;
+}
+
+.escena11__extra-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena11__extra-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: left;
+}
+
+/* Posición de cada etiqueta — AJUSTAR según tu imagen real */
+.escena11__etiqueta--cobertura {
+  left: 14%;
+  top: 53%;
+}
+
+.escena11__etiqueta--suelo {
+  left: 40%;
+  top: 56%;
+}
+
+.escena11__etiqueta--entorno {
+  left: 29%;
+  top: 70%;
+}
+
+.escena11__boton-volver {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena11__boton-volver:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+
+/* ==========================================================
+   PANTALLA 12
+   ========================================================== */
+
+.escena12 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena12__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena12__boton-fondo {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  left: 155px;
+  top: 467px;
+  width: 290px;
+  height: 65px;
+}
+
+.escena12__boton-fondo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(9, 255, 0, 0.76);
+}
+
+/* ==========================================================
+   PANTALLA 13 — LÓGICA DIFUSA
+   ========================================================== */
+
+.escena13 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena13__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena13__titulo {
+  position: absolute;
+  left: 18%;
+  top: 15%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.escena13__globo2 {
+  position: absolute;
+  left: 19%;
+  top: 25%;
+  width: 350px;
+}
+
+.escena13__globo2-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena13__globo2-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 16px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.escena13__globo2-personaje {
+  position: absolute;
+  right: -35px;
+  bottom: -15px;
+  width: 80px;
+  height: auto;
+  z-index: 1;
+}
+
+/* Imagen del personaje femenino (cambia según el slider) */
+.escena13__femenino {
+  position: absolute;
+  left: 45%;
+  top: -4%;
+  width: 1050px;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Slider */
+.escena13__slider {
+  position: absolute;
+  left: 15%;
+  top: 58%;
+  width: 500px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 70px;
+  background: linear-gradient(90deg, #00e900 0%, #cfdd06 50%, #dd0101 100%);
+  border-radius: 999px;
+  outline: none;
+  cursor: pointer;
+}
+
+.escena13__slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #e9e9e9;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.escena13__slider::-moz-range-thumb {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #e9e9e9;
+  border: none;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.escena13__slider::-moz-range-track {
+  height: 90px;
+  background:#3a3a3a;
+  border-radius: 999px;
+}
+
+/* ==========================================================
+   PANTALLA 14 (bis) — LÓGICA DIFUSA (DETALLE)
+   ========================================================== */
+
+.escena14b {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena14b__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena14b__titulo {
+  position: absolute;
+  left: 18%;
+  top: 15%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.escena14b__bajada {
+  position: absolute;
+  left: 10%;
+  top: 22%;
+  width: 40%;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+.escena14b__boton-volver {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena14b__boton-volver:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+
+/* Zonas invisibles sobre los puntos del gráfico */
+.escena14b__punto {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+}
+
+/* Posiciones — AJUSTAR según tu imagen real */
+.escena14b__punto--alto {
+  left: 20.5%;
+  top: 72.9%;
+}
+
+.escena14b__punto--bajo {
+  left: 25.8%;
+  top: 81.2%;
+}
+
+.escena14b__extra {
+  position: absolute;
+  width: 320px;
+  top: -80px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.escena14b__punto:hover .escena14b__extra {
+  opacity: 1;
+  visibility: visible;
+}
+
+.escena14b__extra-imagen {
+  display: block;
+  width: 150%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena14b__extra-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: left;
+}
+
+.escena14b__punto {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 0 0 0 rgba(63, 224, 138, 0.6);
+  animation: punto-pulso 2s infinite;
+}
+
+@keyframes punto-pulso {
+  0% {
+    box-shadow: 0 0 0 0 rgba(63, 224, 138, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(63, 224, 138, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(63, 224, 138, 0);
+  }
+}
+
+.escena14b__punto:hover {
+  animation-play-state: paused; /* se detiene el pulso mientras mirás el texto */
+}
+/* ==========================================================
+   PANTALLA 15
+   ========================================================== */
+
+.escena15 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena15__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena15__boton-fondo {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  left: 1366px;
+  top: 258px;
+  width: 400px;
+  height: 65px;
+}
+
+.escena15__boton-fondo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(9, 255, 0, 0.76);
+}
+/* ==========================================================
+   PANTALLA 16 — DECISIONES AUTÓNOMAS
+   ========================================================== */
+
+.escena16 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena16__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena16__titulo {
+  position: absolute;
+  left: 55%;
+  top: 12%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* Globo 2 */
+.escena16__globo2 {
+  position: absolute;
+  left: 62%;
+  top: 22%;
+  width: 350px;
+}
+
+.escena16__globo2-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena16__globo2-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 16px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.escena16__globo2-personaje {
+  position: absolute;
+  right: -35px;
+  bottom: -15px;
+  width: 80px;
+  height: auto;
+  z-index: 1;
+}
+
+/* Globo 13 */
+.escena16__globo13 {
+  position: absolute;
+  left: 58%;
+  top: 34%;
+  width: 500px;
+}
+
+.escena16__globo13-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena16__globo13-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 20px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+/* Botones de contexto */
+.escena16__opciones {
+  position: absolute;
+  left: 49%;
+  top: 47%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.escena16__opcion-boton {
+  width: 320px;
+  padding: 16px 24px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.escena16__opcion-boton:hover {
+  border-color: #3fe08a;
+  background: rgba(63, 224, 138, 0.08);
+}
+
+.escena16__resultado {
+  position: absolute;
+  left: 70%;
+  top: 51%;
+  width: 370px;
+  height: auto;
+}
+
+.escena16__opcion-boton.is-active {
+  border-color: #3fe08a;
+  background: rgba(63, 224, 138, 0.08);
+}
+
+/* ==========================================================
+   PANTALLA 17 — DECISIONES AUTÓNOMAS
+   ========================================================== */
+
+.escena17 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena17__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+.escena17__titulo {
+  position: absolute;
+  left: 55%;
+  top: 12%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.escena17__bajada {
+  position: absolute;
+  left: 50.5%;
+  top: 22%;
+  width: 42%;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.escena17__boton-volver {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena17__boton-volver:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+
+/* ==========================================================
+   PANTALLA 18
+   ========================================================== */
+
+.escena18 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena18__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena18__boton-fondo {
+  position: absolute;
+  display: block;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  left: 1351.5px;
+  top: 700px;
+  width: 423px;
+  height: 65px;
+}
+
+.escena18__boton-fondo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(9, 255, 0, 0.76);
+}
+/* ==========================================================
+   PANTALLA 19 — CONVERSACIONES REALES
+   ========================================================== */
+
+.escena19 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena19__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena19__titulo {
+  position: absolute;
+  left: 50%;
+  top: 12%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+/* Globo 2 */
+.escena19__globo2 {
+  position: absolute;
+  left: 59%;
+  top: 22%;
+  width: 350px;
+}
+
+.escena19__globo2-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena19__globo2-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 16px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.3;
+  color: #ffffff;
+}
+
+.escena19__globo2-personaje {
+  position: absolute;
+  right: -15px;
+  bottom: -15px;
+  width: 40px;
+  height: auto;
+  z-index: 1;
+}
+
+/* Barra de chat */
+.escena19__chat {
+  position: absolute;
+  left: 48.5%;
+  top: 70%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(90deg, rgba(15, 60, 45, 0.55), rgba(20, 100, 75, 0.35));
+  border-radius: 999px;
+  padding: 10px 12px 10px 20px;
+}
+
+.escena19__chat-mas {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+.escena19__chat-texto {
+  flex: 1;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.escena19__chat-input::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.escena19__chat-enviar {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #3fe08a;
+  color: #0f2c22;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.escena19__chat-enviar:hover {
+  transform: scale(1.08);
+}
+
+
+.escena19__msg {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+.escena19__msg.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.escena19__msg-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena19__msg-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 16px 22px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+/* Ubicación relativa de cada mensaje dentro del log — AJUSTAR */
+.escena19__chat-log {
+  position: absolute;
+  left: 65%;
+  top: 35%;
+  width: 20%;
+}
+
+.escena19__msg--usuario {
+  top: 0;
+  width: 60%;
+  left: 40%; /* pegado a la derecha, como en tu referencia */
+}
+
+.escena19__msg--typing {
+  top: 280px;
+  width: 22%;
+  left: -270px;
+}
+
+.escena19__msg--respuesta {
+  position: relative;
+  width: 480px;      /* ancho fijo, no depende del 20% del contenedor */
+  left: -132px; 
+  top: 92px;      /* la corre hacia la izquierda para que no se salga de pantalla */
+}
+
+.escena19__msg--respuesta .escena19__msg-imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  }
+
+.escena19__msg--respuesta .escena19__msg-texto {
+  display: block; /* pisa el display:flex de la regla base */
+  position: relative;
+  top: -20px;
+  padding: 22px 26px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.escena19__msg-marco {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-width: 40px;              /* ajustar: grosor del borde/esquina real de tu imagen */
+  border-image-source: url('images/globomsg3.png');
+  border-image-slice: 40 fill;     /* mismo número que border-width */
+  border-image-repeat: stretch;
+}
+
+/* Puntitos animados de "escribiendo" */
+.escena19__dots {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.escena19__dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: dot-bounce 1.4s infinite ease-in-out;
+}
+
+.escena19__dots span:nth-child(2) { animation-delay: 0.2s; }
+.escena19__dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
+}
+/* ==========================================================
+   PANTALLA 20 — CONVERSACIONES REALES (PROCESO)
+   ========================================================== */
+
+.escena20 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena20__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena20__boton-volver {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena20__boton-volver:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+
+.escena20__titulo {
+  position: absolute;
+  left: 50%;
+  top: 12%;
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 70px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.acento-azul {
+  color: #3fc7e0;
+  font-weight: bold;
+}
+
+.escena20__entrada {
+  position: absolute;
+  left: 47%;
+  top: 22%;
+  width: 42%;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.escena20__procesando {
+  position: absolute;
+  left: 57%;
+  top: 32%;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  color: #3fc7e0;
+  letter-spacing: 0.05em;
+}
+
+/* Puntos rosas sobre el gráfico de red neuronal */
+.escena20__punto {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+}
+
+/* Posiciones — AJUSTAR según tu imagen real */
+.escena20__punto--1 {
+  left: 80.7%;
+  top: 30.4%;
+}
+
+.escena20__punto--2 {
+  left: 61.1%;
+  top: 53.7%;
+}
+
+.escena20__punto--3 {
+  left: 72.1%;
+  top: 65.2%;
+}
+
+.escena20__extra {
+  position: absolute;
+  width: 300px;
+  top: -75px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.escena20__punto:hover .escena20__extra {
+  opacity: 1;
+  visibility: visible;
+}
+
+.escena20__extra-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena20__extra-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.3;
+  color: #ffffff;
+  text-align: left;
+}
+
+.escena20__generacion {
+  position: absolute;
+  left: 52%;
+  top: 78%;
+  width: 42%;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.escena20__integracion {
+  position: absolute;
+  left: 52%;
+  top: 86%;
+  width: 42%;
+  text-align: center;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 23px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.escena20__punto {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0;
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 0 0 0 rgba(63, 224, 138, 0.6);
+  animation: punto-pulso 2s infinite;
+}
+
+@keyframes punto-pulso {
+  0% {
+    box-shadow: 0 0 0 0 rgba(63, 224, 138, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(63, 224, 138, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(63, 224, 138, 0);
+  }
+}
+
+.escena20__punto:hover {
+  animation-play-state: paused;
+}
+/* ==========================================================
+   PANTALLA 21
+   ========================================================== */
+
+.escena21 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena21__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena21__overlay {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.escena21__overlay.is-visible {
+  opacity: 0.5;
+}
+
+.escena21__personaje {
+  position: absolute;
+  right: 15%;
+  top: 63%;
+  transform: translateY(-50%);
+  width: clamp(220px, 22vw, 420px);
+  height: auto;
+  filter: drop-shadow(0 0 60px rgba(255, 255, 255, 0.35));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.escena21__personaje.is-visible {
+  opacity: 1;
+}
+
+.escena21__globo {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 800px;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.escena21__globo.is-visible {
+  opacity: 1;
+}
+
+.escena21__globo-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.escena21__triangulo {
+  position: absolute;
+  right: 90px;
+  top: 70%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: auto;
+  cursor: pointer;
+}
+
+.escena21__globo-texto {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0px 90px 34px 40px;
+  pointer-events: none;
+}
+
+.escena21__globo-texto p {
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 40px;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.escena21__boton {
+  display: none;
+  position: absolute;
+  right: 60px;
+  top: 70%;
+  transform: translateY(-50%);
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 30px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena21__boton:hover {
+  transform: translateY(-52%) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+/* ==========================================================
+   PANTALLA 22 — TRADICIONAL VS IA GENERATIVA
+   ========================================================== */
+
+.escena22 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena22__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena22__dinero {
+  position: absolute;
+  top: 13%;
+  width: 120px;
+}
+
+.escena22__dinero--trad { left: 19.5%; }
+.escena22__dinero--ia   { left: 70.8%; }
+
+.escena22__dinero-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena22__dinero-texto {
+  position: absolute;
+  inset: 0;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+/* Botones ítem */
+.escena22__item {
+  position: absolute;
+  width: 130px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.escena22__item-imagen {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena22__item.is-comprado {
+  cursor: default;
+}
+
+.escena22__item.is-deshabilitado {
+  opacity: 0.35;
+  filter: grayscale(1);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Posiciones — AJUSTAR según tu fondo real */
+.escena22__item--historia        { left: 15%; top: 27%; }
+.escena22__item--dialogos        { left: 24%; top: 27%; }
+.escena22__item--comportamiento  { left: 15%; top: 42%; width: 305px; }
+.escena22__item--modelo3d        { left: 15%; top: 55%; }
+.escena22__item--animaciones     { left: 24%; top: 55%; }
+
+.escena22__item--personalidad    { left: 66%; top: 26%; width: 305px; }
+.escena22__item--memoria         { left: 66%; top: 39%; }
+.escena22__item--api             { left: 75%; top: 39%; }
+.escena22__item--motor           { left: 66%; top: 58%; width: 305px; }
+
+/* Círculos de total */
+.escena22__circulo {
+  position: absolute;
+  top: 78%;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.escena22__circulo--trad { left: 13%; }
+.escena22__circulo--ia   { left: 65%; }
+
+.escena22__circulo-label {
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.escena22__circulo-valor {
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+/* Listas de categorías */
+.escena22__lista {
+  position: absolute;
+  top: 80%;
+  list-style: none;
+  font-family: 'coolvetica', 'Courier New', monospace;
+  font-size: 14px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.escena22__lista--trad { left: 22%; }
+.escena22__lista--ia   { left: 74%; }
+
+.escena22__lista li {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.escena22__lista li.is-completado span {
+  color: #3fe08a;
+  font-weight: bold;
+}
+
+.escena22__overlay-final {
+  position: absolute;
+  inset: 0;
+  background: #000000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 5;
+}
+
+.escena22__overlay-final.is-visible {
+  opacity: 0.5;
+  pointer-events: auto;
+}
+
+.escena22__personaje-final {
+  position: absolute;
+  right: -40%;
+  top: 70%;
+  transform: translateY(-50%);
+  width: clamp(220px, 22vw, 420px);
+  height: auto;
+  filter: drop-shadow(0 0 60px rgba(255, 255, 255, 0.35));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.escena22__personaje-final.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.escena22__secuencia-final {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 800px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease;
+  z-index: 6;
+}
+
+.escena22__secuencia-final.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.escena22__globo-final {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena22__triangulo-final {
+  position: absolute;
+  right: 90px;
+  top: 70%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: auto;
+  cursor: pointer;
+}
+
+.escena22__final-texto {
+  position: absolute;
+  inset: 0;
+  padding: 34px 90px 34px 40px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.escena22__final-texto p {
+  display: block; /* el texto fluye normal, sin heredar el flex del padre */
+  font-family: 'Neue Bit', 'Courier New', monospace;
+  font-size: 40px;
+  line-height: 0.8;
+  color: #ffffff;
+  margin-bottom: 60px;
+}
+
+.escena22__boton-final {
+  display: none;
+  position: absolute;
+  right: 60px;
+  top: 70%;
+  transform: translateY(-50%);
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 30px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena22__boton-final:hover {
+  transform: translateY(-52%) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+
+/* ==========================================================
+   PANTALLA 23 — MOTOR "NEMESIS SYSTEM"
+   ========================================================== */
+
+.escena23 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena23__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena23__boton-volver {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena23__boton-volver:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+
+/* ==========================================================
+   PANTALLA 24 — AUTONOMÍA
+   ========================================================== */
+
+.escena24 {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escena24__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escena24__boton-volver {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escena24__boton-volver:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}
+/* ==========================================================
+   PANTALLA FINAL
+   ========================================================== */
+
+.escenafinal {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.escenafinal__fondo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.escenafinal__boton-reiniciar {
+  position: absolute;
+  left: 3%;
+  top: 5%;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-family: 'Coolvetica', 'Courier New', monospace;
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #35c9a5 0%, #d4e157 100%);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.escenafinal__boton-reiniciar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(61, 208, 163, 0.35);
+}

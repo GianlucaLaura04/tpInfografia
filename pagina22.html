@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Más allá del script — Tradicional vs IA Generativa</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <section class="escena22">
+
+    <img src="images/fondo21.png" alt="" class="escena22__fondo" aria-hidden="true">
+
+<!-- Presupuestos -->
+<div class="escena22__dinero escena22__dinero--trad">
+  <img src="images/globodinero.png" alt="" class="escena22__dinero-imagen" aria-hidden="true">
+  <span class="escena22__dinero-texto" id="presupuesto-trad">650</span>
+</div>
+
+<div class="escena22__dinero escena22__dinero--ia">
+  <img src="images/globodinero.png" alt="" class="escena22__dinero-imagen" aria-hidden="true">
+  <span class="escena22__dinero-texto" id="presupuesto-ia">650</span>
+</div>
+    <!-- Botones TRADICIONAL -->
+    <button class="escena22__item escena22__item--historia" type="button"
+      data-lado="trad" data-costo="70" data-horas="40" data-categoria="historia" data-destino="">
+      <img src="images/item-historia-off.png" class="escena22__item-imagen" alt="" aria-hidden="true">
+    </button>
+
+    <button class="escena22__item escena22__item--dialogos" type="button"
+      data-lado="trad" data-costo="90" data-horas="35" data-categoria="dialogos" data-destino="">
+      <img src="images/item-dialogos-off.png" class="escena22__item-imagen" alt="" aria-hidden="true">
+    </button>
+
+    <button class="escena22__item escena22__item--comportamiento" type="button"
+      data-lado="trad" data-costo="300" data-horas="120" data-categoria="comportamiento" data-destino="">
+      <img src="images/item-comportamiento-off.png" class="escena22__item-imagen" alt="" aria-hidden="true">
+    </button>
+
+    <button class="escena22__item escena22__item--modelo3d" type="button"
+      data-lado="trad" data-costo="100" data-horas="60" data-categoria="modelo3d" data-destino="">
+      <img src="images/item-modelo3d-off.png" class="escena22__item-imagen" alt="" aria-hidden="true">
+    </button>
+
+    <button class="escena22__item escena22__item--animaciones" type="button"
+      data-lado="trad" data-costo="80" data-horas="45" data-categoria="animaciones" data-destino="">
+      <img src="images/item-animaciones-off.png" class="escena22__item-imagen" alt="" aria-hidden="true">
+    </button>
+
+    <!-- Botones IA GENERATIVA -->
+    <button class="escena22__item escena22__item--personalidad" type="button"
+      data-lado="ia" data-costo="90" data-horas="8" data-categoria="personalidad" data-destino="">
+      <img src="images/item-personalidad-off.png" class="escena22__item-imagen" alt="" aria-hidden="true">
+    </button>
+
+    <button class="escena22__item escena22__item--memoria" type="button"
+      data-lado="ia" data-costo="165" data-horas="15" data-categoria="memoria" data-destino="pagina23.html">
+      <img src="images/item-memoria-off.png" class="escena22__item-imagen" alt="" aria-hidden="true">
+    </button>
+
+    <button class="escena22__item escena22__item--api" type="button"
+      data-lado="ia" data-costo="100" data-horas="10" data-categoria="api" data-destino="pagina24.html">
+      <img src="images/item-api-off.png" class="escena22__item-imagen" alt="" aria-hidden="true">
+    </button>
+
+    <button class="escena22__item escena22__item--motor" type="button"
+      data-lado="ia" data-costo="180" data-horas="12" data-categoria="motor" data-destino="">
+      <img src="images/item-motor-off.png" class="escena22__item-imagen" alt="" aria-hidden="true">
+    </button>
+
+    <!-- Reloj TRADICIONAL -->
+    <div class="escena22__circulo escena22__circulo--trad">
+      <span class="escena22__circulo-label">Total</span>
+      <strong class="escena22__circulo-valor" id="total-trad">0hs</strong>
+    </div>
+    <ul class="escena22__lista escena22__lista--trad">
+      <li data-categoria="historia">Historia <span>0hs</span></li>
+      <li data-categoria="animaciones">Animaciones <span>0hs</span></li>
+      <li data-categoria="dialogos">Diálogos <span>0hs</span></li>
+      <li data-categoria="modelo3d">Modelo 3D <span>0hs</span></li>
+      <li data-categoria="comportamiento">Comportamiento <span>0hs</span></li>
+    </ul>
+
+    <!-- Reloj IA GENERATIVA -->
+    <div class="escena22__circulo escena22__circulo--ia">
+      <span class="escena22__circulo-label">Total</span>
+      <strong class="escena22__circulo-valor" id="total-ia">0hs</strong>
+    </div>
+    <ul class="escena22__lista escena22__lista--ia">
+      <li data-categoria="personalidad">Personalidad <span>0hs</span></li>
+      <li data-categoria="memoria">Memoria <span>0hs</span></li>
+      <li data-categoria="api">API <span>0hs</span></li>
+      <li data-categoria="motor">Motor <span>0hs</span></li>
+    </ul>
+<!-- Secuencia final: aparece cuando se compra todo -->
+<div class="escena22__overlay-final" id="overlay-final"></div>
+
+
+
+<!-- Secuencia final: aparece cuando se compra todo -->
+<div class="escena22__overlay-final" id="overlay-final"></div>
+
+
+
+<div class="escena22__secuencia-final" id="secuencia-final">
+  <img src="images/globofinal1.png" alt="" class="escena22__globo-final" id="img-globo-final">
+  <img src="images/triangulo.png" alt="Siguiente" class="escena22__triangulo-final" id="triangulo-final">
+  <button class="escena22__boton-final" id="boton-final" type="button">
+    <span class="portada__boton-icono" aria-hidden="true">↳</span>
+    <span>Continuar</span>
+  </button>
+  <div class="escena22__final-texto" id="final-texto">
+      <p></p>
+  </div>
+  <img src="images/personaje.png" alt="Personaje IA" class="escena22__personaje-final" id="personaje-final">
+</div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Más allá del script — Conversaciones Reales</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <section class="escena19">
+
+    <!-- Fondo: la chica -->
+    <img src="images/fondo18.png" alt="" class="escena19__fondo" aria-hidden="true">
+
+    <h2 class="escena19__titulo">Conversaciones Reales</h2>
+
+    <!-- Globo 2: instrucción -->
+    <div class="escena19__globo2">
+      <img src="images/globo2.png" alt="" class="escena19__globo2-imagen" aria-hidden="true">
+      <p class="escena19__globo2-texto">Envíale la pregunta y descubre<br>cómo reacciona en tiempo real</p>
+      <img src="images/personaje.png" alt="Personaje IA" class="escena19__globo2-personaje">
+    </div>
+ <!-- Barra de chat -->
+<div class="escena19__chat">
+  <button class="escena19__chat-mas" type="button" aria-label="Agregar">+</button>
+  <span class="escena19__chat-texto">¿Cómo se usa la IA generativa en los diálogos?</span>
+  <button class="escena19__chat-enviar" type="button" aria-label="Enviar">↑</button>
+</div>
+<!-- Secuencia de mensajes -->
+<div class="escena19__chat-log">
+
+  <div class="escena19__msg escena19__msg--usuario" id="msg-usuario">
+    <img src="images/globomsg1.png" alt="" class="escena19__msg-imagen" aria-hidden="true">
+    <p class="escena19__msg-texto">¿Cómo se usa la IA generativa en los diálogos?</p>
+  </div>
+
+  <div class="escena19__msg escena19__msg--typing" id="msg-typing">
+    <img src="images/globomsg2.png" alt="" class="escena19__msg-imagen" aria-hidden="true">
+    <div class="escena19__dots">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="escena19__msg escena19__msg--respuesta" id="msg-respuesta">
+    <div class="escena19__msg--respuesta">
+  <div class="escena19__msg-marco"></div>
+  <p class="escena19__msg-texto">
+     <p class="escena19__msg-texto">
+      ¡Súper fácil! Un programador no puede adivinar ni escribir las miles de
+      cosas que se le ocurren decirme. Con IA no estoy limitada a un guion:
+      leo tu mensaje en <span class="acento">tiempo real</span>, entiendo tu
+      <span class="acento">intención</span> y te respondo de forma
+      <span class="acento">única e improvisada</span>.
+    </p>
+  </p>
+</div>
+  </div>
+
+</div>
+  </section>
+
+</body>
+</html>
